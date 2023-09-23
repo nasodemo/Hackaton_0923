@@ -15,8 +15,8 @@ import os
 def draw():
     config = dotenv.find_dotenv()
     dotenv.load_dotenv(config)
-    openai.api_key = os.environ["OPENAI_API_KEY"]
-    st.header("🤖 OPT-3 (Demo)")
+    openai.api_key = "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"
+    st.header("🤖 OttogiGPT-3 (Demo)")
     
     #### 기본 변수 공간 선언 ####
         

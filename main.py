@@ -56,13 +56,13 @@ with Tab_Recomendation:
         for i, col in enumerate(cols):
             with col:
                 img, txt = st.columns([1,2])
-                with img: st.image(item['IMAGE_URL'][i], width=min(100, int(200/len(item['LINKS']))))
+                with img: st.image(data_tools.image_url(item['IMAGE_PATH'][i]), width=int(200/len(item['LINKS'])))
                 with txt:
                     name = item['LINKS'][i].split('www.amazon.com/')[1].split('/dp')[0].replace('-', ' ')
                     st.write(name)
-                    st.markdown(f'<a href="{item["LINKS"][i]}" style="color: #dddddd;">Purchase</a>', unsafe_allow_html=True)
+                    st.markdown(f'<a href="{item["LINKS"][i]}" style="color: #dddddd;">구매하러 가기</a>', unsafe_allow_html=True)
         
-        st.image('https://jung-yeon-ho1234567890.on.drv.tw/junks'+item['IMAGE'], use_column_width='always')
+        st.image(item['IMAGE'], use_column_width='always')
         st.markdown('## Recipe')
         
         recipes = item['RECIPE'].split('\n')[1:]
@@ -74,12 +74,12 @@ with Tab_Recomendation:
             if len(st.session_state.path) == 2:
                 session_states.update_path([st.session_state.path[0]])
                 
-        # st.morkdown("""
-        # <script>
-        #     const checkbox = document.getElementByName("wideMode");
-        #     console.log(checkbox[0])
-        # </script>
-        # """)
+        st.morkdown("""
+        <script>
+            const checkbox = document.getElementByName("wideMode");
+            console.log(checkbox[0])
+        </script>
+        """)
         
 with Tab_ChatBot:
     chat_bot.draw()
