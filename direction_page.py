@@ -42,8 +42,8 @@ class DirectionPage:
         # Buttons #
         main_col = list(st.columns([1, 1, 1, 1]))
         
-        if st.button("Back"):
-            if len(st.session_state.path) == 1:
+        if len(st.session_state.path) == 1:
+            if st.button("Back"):
                 session_states.update_path([])
         
         for i in range(len(self.items)):
